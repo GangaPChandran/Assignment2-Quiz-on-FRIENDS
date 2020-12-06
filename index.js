@@ -9,7 +9,7 @@ const question_style=chalk.whiteBright;
 var score=0;
 var name=readlineSync.question("Please enter your name: ");
 log(chalk.white.bgMagentaBright.bold.underline("------------Welcome "+name+" to HOW WELL DO YOU KNOW FRIENDS?------------ "));                log("\n ");                
-log(chalk.bgYellowBright.black.italic.bold("INSTRUCTION: \n  The following quiz is on the TV show FRIENDS. \n 1.The quiz consists of 2 levels having 5 questions each. \n 2.For each correct answer 1 point will be rewarded and for incorrect answers 1 point will be deducted \n "));
+log(chalk.bgYellowBright.black.italic.bold("INSTRUCTION: \n  The following quiz is on the TV show FRIENDS. \n 1.The quiz consists of 2 levels having 5 questions each. \n 2.For each correct answer 1 point will be rewarded and for incorrect answers no points will be rewarded \n "));
 log("\n ");  
 log(underline("----------------------------------------------------------------------"));
 //LEVEL 1
@@ -44,8 +44,8 @@ var qna1=
 
 function quiz1(question1,answer1)
 {
-  var userAns=readlineSync.question(question_style(question1));
-  if(userAns===answer1)
+  var userAns1=readlineSync.question(question_style(question1));
+  if(userAns1===answer1)
   {
     log(correctAns("You are right!"));
     score++;
@@ -55,9 +55,9 @@ else
 }
 //main program
 for(var i=0;i<5;i++) {
-    var currentQuestion = qna1[i];
-   quiz1(currentQuestion.ques, currentQuestion.ans);
-   log(currentQuestion.print);
+    var currentQuestion1 = qna1[i];
+   quiz1(currentQuestion1.ques, currentQuestion1.ans);
+   log(currentQuestion1.print);
   }
 
 
@@ -80,33 +80,34 @@ var qna2=
  [
   {
     ques:"6. Monica's grandmother used to live in Monica's apartment. \n",
-    ans:'y',
-    print:"Monica's grandmother did live in Monica's apartment."
+    ans:true,
+    print:"Monica's grandmother did live in Monica's apartment. \n"
   },
   {
     ques:"7. Ross dresses up as Santa at Christmas for Ben. \n" ,
-    ans:'n',
-    print:"Ross dressed up as a an armadillo."
+    ans:false,
+    print:"Ross dressed up as a an armadillo.\n"
   },
   {
     ques:"8. When the friends are trying to navigate a couch up the stairs, Ross yells Turn! \n" ,
-    ans:'n',
-    print:"Ross yells Pivot!"
+    ans:false,
+    print:"Ross yells Pivot!  \n"
   },
   {
     ques:"9.Ross created a comic book as a kid that he called Dino Boy. \n ",
-    ans:'n',
-    print:"Ross made a comic book as a kid named Science Boy."
+    ans:false,
+    print:"Ross made a comic book as a kid named Science Boy.\n"
   },
   {
     ques:"10. Pheobe's most popular song was Smelly Cat \n",
-    ans:'y',
-    print:"Smelly Cat was her popular song"
+    ans:true,
+    print:"Smelly Cat was her popular song \n"
   }];
 
 function quiz2(question2,answer2)
 {
-  if(readlineSync.keyInYN(question_styte(question2))==answer2)
+  var userans2=question_style(readlineSync.keyInYN(question2));
+   if(userans2===answer2)n
   {
     log(correctAns("You are right!"));
     score++;
@@ -116,9 +117,9 @@ else
 }
 
 for(var i=0;i<5;i++) {
-    var currentQuestion = qna2[i];
-   quiz2(currentQuestion.ques, currentQuestion.ans);
-   log(currentQuestion.print);
+    var currentQuestion2 = qna2[i];
+   quiz2(currentQuestion2.ques, currentQuestion2.ans);
+   log(currentQuestion2.print);
   }
 
 log("Your TOTAL SCORED is: ", score);
