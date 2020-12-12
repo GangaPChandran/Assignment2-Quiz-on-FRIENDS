@@ -94,7 +94,7 @@ var qna2=
     print:"Ross yells Pivot!  \n"
   },
   {
-    ques:"9.Ross created a comic book as a kid that he called Dino Boy. \n ",
+    ques:"9.Ross created a comic book as a kid that he called Dino Boy \n ",
     ans:false,
     print:"Ross made a comic book as a kid named Science Boy.\n"
   },
@@ -104,18 +104,27 @@ var qna2=
     print:"Smelly Cat was her popular song \n"
   }];
 
-function quiz2(question2,answer2)
+function quiz2(question,answer)
 {
-  var userans2=question_style(readlineSync.keyInYN(question2));
-   if(userans2===answer2)n
+   if(readlineSync.keyInYN(question))
   {
+    if(answer===true)
+    {
     log(correctAns("You are right!"));
     score++;
+    } 
+    else{log(wrong("Sorry you are wrong!"));}
+  }   
+  else
+  {
+      if(answer===false)
+      {
+      log(correctAns("You are right!"));
+      score++;
+      } 
+    else{log(wrong("Sorry you are wrong!"));}
   }
-else
-  log(wrong("Sorry you are wrong!"));
 }
-
 for(var i=0;i<5;i++) {
     var currentQuestion2 = qna2[i];
    quiz2(currentQuestion2.ques, currentQuestion2.ans);
