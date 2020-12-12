@@ -142,6 +142,7 @@ if(score>highest)
 {
   var highest=score;
   log("1. "+ name +" - "+ score +"\n");
+  log("Good Job! You broke the high score");
 }
 else
   log("1. Ganga - 8 \n");
